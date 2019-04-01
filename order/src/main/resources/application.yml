@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: order
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: az123!@#
+    url: jdbc:mysql://127.0.0.1:3306/springcloud?characterEncoding=utf-8&serverTimezone=UTC
+  jpa:
+    show-sql: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+PRODUCT:
+  ribbot:
+    NFLoadBancerRuleClassName: com.netflix.loadbalancer.RandomRule

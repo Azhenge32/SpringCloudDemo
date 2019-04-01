@@ -1,6 +1,6 @@
 package com.azhen.cloud.product.repository;
 
-import com.azhen.cloud.product.entity.ProductCategory;
+import com.azhen.cloud.product.dataobject.ProductCategory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

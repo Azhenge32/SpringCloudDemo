@@ -1,7 +1,7 @@
 package com.azhen.cloud.product.repository;
 
 
-import com.azhen.cloud.product.entity.ProductInfo;
+import com.azhen.cloud.product.dataobject.ProductInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

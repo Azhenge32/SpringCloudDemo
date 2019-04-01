@@ -1,6 +1,6 @@
 package com.azhen.cloud.product.service.impl;
 
-import com.azhen.cloud.product.entity.ProductInfo;
+import com.azhen.cloud.product.dataobject.ProductInfo;
 import com.azhen.cloud.product.enums.ProductStatusEnum;
 import com.azhen.cloud.product.repository.ProductInfoRepository;
 import com.azhen.cloud.product.service.ProductService;

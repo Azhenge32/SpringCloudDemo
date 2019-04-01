@@ -1,4 +1,4 @@
-package com.azhen.cloud.product.entity;
+package com.azhen.cloud.product.dataobject;
 
 import lombok.Data;
 

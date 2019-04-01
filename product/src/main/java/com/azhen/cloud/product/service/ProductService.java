@@ -1,6 +1,6 @@
 package com.azhen.cloud.product.service;
 
-import com.azhen.cloud.product.entity.ProductInfo;
+import com.azhen.cloud.product.dataobject.ProductInfo;
 
 import java.util.List;
 

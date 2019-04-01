@@ -1,7 +1,7 @@
 package com.azhen.cloud.product.service;
 
 
-import com.azhen.cloud.product.entity.ProductCategory;
+import com.azhen.cloud.product.dataobject.ProductCategory;
 
 import java.util.List;
 
