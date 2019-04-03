@@ -1,9 +1,9 @@
 package com.azhen.cloud.product.server.service.impl;
 
 
-import com.azhen.cloud.product.dataobject.ProductCategory;
-import com.azhen.cloud.product.repository.ProductCategoryRepository;
-import com.azhen.cloud.product.service.CategoryService;
+import com.azhen.cloud.product.server.dataobject.ProductCategory;
+import com.azhen.cloud.product.server.repository.ProductCategoryRepository;
+import com.azhen.cloud.product.server.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
