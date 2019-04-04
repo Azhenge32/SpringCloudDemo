@@ -1,4 +1,4 @@
-package com.azhen.cloud.product.server.utils;
+package com.azhen.cloud.order.server.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

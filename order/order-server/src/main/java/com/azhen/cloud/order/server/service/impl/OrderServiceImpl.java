@@ -16,6 +16,7 @@ import com.azhen.cloud.order.server.utils.KeyUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -36,6 +37,7 @@ public class OrderServiceImpl implements OrderService {
     private ProductClient productClient;
 
     @Override
+    @Transactional
     public OrderDTO create(OrderDTO orderDTO) {
         String orderId = KeyUtil.genUniqueKey();
 
@@ -44,7 +46,10 @@ public class OrderServiceImpl implements OrderService {
                 .map(OrderDetail::getProductId)
                 .collect(Collectors.toList());
         List<ProductInfoOutput> productInfoList = productClient.listForOrder(productIdList);
+        // 读Redis
+        // 减库存并将新值重新设置进Redis,使用Redis分布式锁
 
+        // 订单入库异常，try catch 手动回滚Redis, 再throw RuntimeException
 
        //计算总价
         BigDecimal orderAmout = new BigDecimal(BigInteger.ZERO);

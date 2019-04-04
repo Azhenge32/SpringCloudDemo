@@ -11,7 +11,7 @@ spring:
       bindings:
         myMessage:
           group: order  # 消息分组，保证只有一个实例消费消息
-          content-type: application/json  # 消息的存储格式为json
+          content-type: application/json # 消息的存储格式为json
 eureka:
   client:
     service-url:
