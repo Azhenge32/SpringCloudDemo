@@ -16,7 +16,7 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 
 @Component
-public class AuthFilter extends ZuulFilter {
+public class AuthSellerFilter extends ZuulFilter {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     @Override
@@ -31,26 +31,20 @@ public class AuthFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
-        return true;
+        RequestContext requestContent = RequestContext.getCurrentContext();
+        HttpServletRequest request = requestContent.getRequest();
+        // 读Redis,取url配置
+        if ("/order/order/finish".equals(request.getRequestURI())) {
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Object run() {
-        /**
-         * /order/create 只能买家访问(cookie里有openid）
-         * /order/finish 只能卖家访问(cookie里有token,并且对应的redis中值)
-         * /product/list 都可以访问
-         */
+
         RequestContext requestContent = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContent.getRequest();
-        if ("/order/order/create".equals(request.getRequestURI())) {
-            Cookie cookie = CookieUtil.get(request, "openid");
-            if (cookie == null || StringUtils.isEmpty(cookie.getValue())) {
-                requestContent.setSendZuulResponse(false);
-                requestContent.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
-            }
-        }
-
         if ("/order/order/finish".equals(request.getRequestURI())) {
             Cookie cookie = CookieUtil.get(request, "openid");
             if (cookie == null || StringUtils.isEmpty(cookie.getValue())
