@@ -11,3 +11,17 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+zuul:
+  routes:
+    myProduct:
+      path: /myProduct/**
+      serviceId: product
+      sensitiveHeaders: # 不过滤敏感信息
+    product: /myProduct/**
+  ignored-patterns: # 禁止访问
+    # - /product/**
+    # - /myProduct/**
+    # - /**/product/listForOrder
+management:
+  security:
+    enabled: false
